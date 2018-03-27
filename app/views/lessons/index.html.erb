@@ -1,0 +1,14 @@
+<h1>Here are all the lessons</h1>
+
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li>
+      <%= link_to lesson.description, lesson_path(lesson) %>
+      <%= lesson.price %>
+      <%= lesson.difficulty %>
+      <% lesson.languages.each do |language| %>
+        <%= language.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

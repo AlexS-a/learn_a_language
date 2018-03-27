@@ -1,3 +1,6 @@
 <h1>Home page</h1>
 
-<%= link_to "view all lessons", lessons_path %>
+<%= form_tag lessons_path, id: 'search-form', :method => 'get' do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search for a lesson" %>
+<%= submit_tag "Go", :name => nil %>
+<% end %>

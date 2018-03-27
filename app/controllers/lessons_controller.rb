@@ -1,7 +1,11 @@
 class LessonsController < ApplicationController
 
   def index
-    @lessons = Lesson.all
+    if params[:search].blank? || params[:search].nil?
+      @lessons = Lesson.all
+    else
+      @lessons = Lesson.global_search(params[:search])
+    end
   end
 
   def show
